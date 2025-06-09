@@ -27,13 +27,15 @@ broker = os.getenv("MQTT_BROKER")
 port = int(os.getenv("MQTT_PORT"))
 username = os.getenv("MQTT_USER")
 password = os.getenv("MQTT_PASSWORD")
+ca_cert = os.getenv("MQTT_CA_CERT")  # Path to CA certificate
 
 
 
 client = mqtt.Client()
 client.username_pw_set(username, password)
 client.connect(broker, port)
-
+client.tls_set(ca_certs=ca_cert, tls_version=ssl.PROTOCOL_TLSv1_2)  # Enable TLS
+client.connect(broker, port) #remove if unnecessary
 # Load YOLOv8s
 model = YOLO("yolov8s.pt")
 

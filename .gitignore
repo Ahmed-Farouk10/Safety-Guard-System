@@ -6,20 +6,36 @@ __pycache__
 *.pyc
 *.db
 *.sqlite3
+*.log
 
-# Environment variables
+# Virtual Environments
+venv/
+env/
 .env
-.secrets.toml
 
-# Model files
-*.pt
-*.onnx
-*.engine
+# TLS Certificates (sensitive)
+/serbot/certs/
+/flask-api/certs/
 
-# Streamlit secrets
-.streamlit/secrets.toml
+# SQLite Database (auto-generated)
+/flask-api/alerts.db
 
-# IDE files
+# IDE Configurations
 .vscode/
 .idea/
-*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Streamlit Secrets
+/streamlit-dashboard/.streamlit/secrets.toml
+
+# Temporary Files
+*.tmp
+*.bak
+*.swp
+
+# Model Files (if large or sensitive)
+/serbot/yolov8s.pt
+/serbot/*.pt
